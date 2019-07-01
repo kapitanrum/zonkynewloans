@@ -20,10 +20,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Implementation {@link MarketplaceRepository}
+ */
 @Repository
 public class MarketplaceRepositoryImpl extends AbstractZonkyRepository implements MarketplaceRepository {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractZonkyRepository.class);
+
+    /**
+     * Endpoint for list of loans
+     */
+    protected static final String MARKETPLACE_ZONKY_URL = BASIC_ZONKY_URL + "loans/marketplace";
 
     public Page<Loan> getLoans(Integer first, Integer size, Map<String, String> filters, String sort) {
         Client client = ClientBuilder.newClient();
@@ -49,6 +57,5 @@ public class MarketplaceRepositoryImpl extends AbstractZonkyRepository implement
         //read total rows from response header
         int totalRows = NumberUtils.toInt(Objects.toString(response.getHeaders().get(HEADER_TOTAL), null),loanList.size());
         return new Page<>(loanList, totalRows);
-
     }
 }

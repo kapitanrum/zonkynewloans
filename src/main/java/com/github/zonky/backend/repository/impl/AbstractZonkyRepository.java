@@ -15,8 +15,7 @@ public abstract class AbstractZonkyRepository {
 
     //Target URI setting
     protected static final MediaType[] MEDIA_TYPES = new MediaType[]{MediaType.TEXT_PLAIN_TYPE, MediaType.APPLICATION_JSON_TYPE};
-    private static final String BASIC_ZONKY_URL = "https://api.zonky.cz/";
-    protected static final String MARKETPLACE_ZONKY_URL = BASIC_ZONKY_URL + "loans/marketplace";
+    protected static final String BASIC_ZONKY_URL = "https://api.zonky.cz/";
 
     //HTTP Header parameters
     protected static final String HEADER_PAGE = "X-Page";
